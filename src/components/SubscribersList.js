@@ -1,11 +1,12 @@
 //lista odbiorców
 //Lista zawiera
 //Email, Imię oraz datę dodania subskrybenta
-
+import { postSubscribers } from "../server/fetchApi";
 import React from "react";
 import '../style/style.css'
 function SubscribersList({subs}){
     console.log(subs)
+    postSubscribers();
     return(
         <div className="component">
             <h1>Lista Subskrybentów</h1>

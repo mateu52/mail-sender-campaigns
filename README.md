@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+Zadanie 4 - system do wysyłki maili
+Celem zadania jest zbudowanie systemu do wysyłki maili do osób, które znajdują się w naszej bazie danych.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Założenia:
 
-## Available Scripts
+Korzystamy z Airtable jako miejsca przechowywania danych
+Korzystamy z Mailgun lub innego systemu udostępniającego API RESTowe do wysyłki maili
+Interfejs aplikacji tworzymy w React.js
+Aplikacja będzie średniego rozmiaru, więc być może nie będzie wygodnie tworzyć jej z wykorzystaniem CodeSandbox. Możesz to zrobić wysyłając kod do repozytorium na GitHub.
 
-In the project directory, you can run:
+Działanie aplikacji:
+Lista odbiorców (subskrybentów) znajdujących się w naszej bazie danych. Lista zawiera
+Email, Imię oraz datę dodania subskrybenta
+Możliwość dodania nowego subskrybenta:
+Formularz stworzony za pomocą react-hook-form z walidacją, który zawiera dwa pola: email oraz imię. Data powinna zapisać się automatycznie
+Taki obiekt subskrybenta powinien zapisać się w Airtable w tabelce Subscribers
+Aplikacja powinna umożliwiać wysłanie maili do wszystkich osób, które znajdują się w tabelce Subscribers. Odbywa się to poprzez założenie nowego obiektu Campaign (również dostępny w Airtable). Ten obiekt będzie zawierał pola:
+subject - tytuł wysyłanego maila
+content - treść wysyłanego maila
+Aplikacja wykorzystuje PropTypes
+Modyfikacja - dodaj do treści maila specjalną frazę {{ name }}, która w to miejsce wstawi imię subskrybenta. Np. jeśli wprowadzisz treść wiadomości:
+Cześć {{ name }},
+dzisiaj chcę wysłać kilka ciekawostek ze świata Reacta.
 
-### `npm start`
+Pozdrawiam,
+P.
+Wynikiem będzie wstawienie imienia dla każdego subskrybenta. Czyli mając w tabelce Subscribers subskrybenta o imieniu Gwidon i mailu gwidon@wp.pl treść maila powinna wyglądać:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Cześć Gwidon,
+dzisiaj chcę wysłać kilka ciekawostek ze świata Reacta.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Pozdrawiam,
+P.
+Istnieje możliwość wejścia w szczegóły subskrybenta. Odbywa się to poprzez kliknięcie w adres e-mail lub imię na liście. Wówczas zostaniemy przeniesieni na stronę, która pobierze tylko ten jeden rekord z bazy i wyświetli na ekranie.
 
-### `npm test`
+Kampanie po wysłaniu powinny być dostępne w tabelce Campaigns. Jako modyfikację można też rozważyć tworzenie nowego obiektu Campaign w momencie rozpoczęcia tworzenia maila. Dzięki temu można będzie wrócić do edycji za jakiś czas.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Wysłanych kampanii nie będzie można edytować.
 
-### `npm run build`
+Niewysłane kampanie będzie można usunąć.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Ponieważ aplikacja będzie zawierała dane "średnio-wrażliwe", czyli m.in. adresy email, to będzie dostępna dopiero po podaniu tzw. "passphrase". Za pierwszym razem, gdy ktoś otworzy aplikację, to powinien otrzymać tylko prosty formularz z polem tekstowym, gdzie nalży podać tajny tekst. Ten tekst może być ustawiony na sztywno w aplikacji (czyli np. "szkolareacta", "react", "lubieplacki" itp.). Po podaniu prawidłowego tekstu zostanie pokazana cała aplikacja.
