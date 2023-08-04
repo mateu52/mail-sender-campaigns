@@ -25,3 +25,38 @@
 .compList {
     padding: 5px 0;
 }
+.addSubForm {
+    height: 300px;
+    width: 300px;
+    margin:auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border: 4px outset rgba(3, 62, 255, 0.708);
+    border-radius: 13px;
+    
+    .inputForm {
+        margin: auto;
+        width: 200px;
+        height: 25px;
+        padding: 12px 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    .inputFormSubmit {
+        margin: auto;
+        width: 150px;
+        height: 42px;
+        border-radius: 10px;
+        border: 4px ridge rgb(121, 155, 255);
+        background-color:  #4498ff;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 20px;
+        letter-spacing: 2px;
+        font-weight: 500;
+        padding-bottom: 3px;
+    }
+    .form-p {
+        margin: 0 20px;
+    }
+}

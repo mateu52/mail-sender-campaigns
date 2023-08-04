@@ -40,15 +40,15 @@ export const fetchCampaign = async () => {
     return data;
     
 }
-export const postSubscribers = async ()=> {
+export const postSubscribers = async (name, mail)=> {
     var Airtable = require('airtable');
     var base = new Airtable({apiKey: `${REACT_APP_API_KEY}`}).base(`${REACT_APP_DB_ID}`);
 
     base('Subscribers').create([
     {
         "fields": {
-        "Name": "Łukasz",
-        "mail": "lukasz@gmail12.com"
+        "Name": name,
+        "mail": mail
         }
     }
     ], function(err, records) {
@@ -56,32 +56,27 @@ export const postSubscribers = async ()=> {
         console.error(err);
         return;
     }
-    // records.forEach(function (record) {
-    //     console.log(record.getId());
-    // });
     });
 }
-export const postCampaign = async () => {
+export const postCampaign = async ( subject, content) => {
     var Airtable = require('airtable');
 var base = new Airtable({apiKey: `${REACT_APP_API_KEY}`}).base(`${REACT_APP_DB_ID}`);
 
 base('Campaign').create([
-  {
-    "fields": {
-      "subject": "Zniżka na nowy miesiąc",
-      "content": "Zniżka 10% do końca miesiąca ! Pozdrawiam"
+    {
+        "fields": {
+        "subject": subject,
+        "content": content
+        }
     }
-  }
-], function(err, records) {
-  if (err) {
-    console.error(err);
-    return;
-  }
-//   records.forEach(function (record) {
-//     console.log(record.getId());
-//   });
+    ], function(err, records) {
+    if (err) {
+        console.error(err);
+        return;
+    }
 });
 }
+
 export const deleteCampaign = (event) => {
     const url =`https://api.airtable.com/v0/appJTGbZvHOc5sb7c/Campaign/${event}`;
         const apiKey = `${REACT_APP_API_KEY}`; // Wprowadź swój klucz API dla Airtable
