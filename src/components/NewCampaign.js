@@ -27,7 +27,7 @@ function NewCampaign(){
                 {errors.email && <span>This fields is required</span>}
                 <input type="submit" className="inputFormSubmit" />
             </form>
-        
+            <p className="margin"></p>
         
         </div>
 

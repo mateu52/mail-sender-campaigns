@@ -18,19 +18,19 @@ function App() {
         <div>
           <nav className="nav">
             <p>
-              <Link to="/" >Główna</Link>
+              <Link to="/" ><p>Główna</p></Link>
             </p>
             <p>
-              <Link to="/Subscibers_List" >Subscribers List</Link>
+              <Link to="/Subscibers_List" ><p>Subscribers List</p></Link>
             </p>
             <p>
-              <Link to="/Add_Subscriber" >Add Subscriber</Link>
+              <Link to="/Add_Subscriber" ><p>Add Subscriber</p></Link>
             </p>
             <p>
-              <Link to="/Campaign" >Campaign</Link>
+              <Link to="/Campaign" ><p>Campaign</p></Link>
             </p>
             <p>
-              <Link to="/New_Campaign" >New Campaign</Link>
+              <Link to="/New_Campaign" ><p>New Campaign</p></Link>
             </p>
           </nav>
           <Routes>

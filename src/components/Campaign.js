@@ -26,7 +26,12 @@ function Campaign(){
                     <p>treść: {elem.content}</p>
                     <p>stan: {elem.select} 
                         {elem.select === 'Draft' 
-                        ?<input type="button" value="Usuń" onClick={() =>handleDelete(elem.id)} /> 
+                        ?<input 
+                            type="button" 
+                            value="Usuń" 
+                            onClick={() =>handleDelete(elem.id)} 
+                            className="camp_button"
+                        /> 
                             : null}
                     </p>
                 </div>)
