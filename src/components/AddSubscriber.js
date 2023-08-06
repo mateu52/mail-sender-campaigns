@@ -23,7 +23,7 @@ function AddSubscriber(){
     return(
         <div className="component">
             <h1>AddSubscriber</h1>
-            <form onSubmit={handleSubmit(onSubmit)} className="addSubForm">
+            <form onSubmit={handleSubmit(onSubmit)} className="form-to-add">
                 <p className="form-p">Imie: </p>
                 <input {...register("name", { required: true })} 
                     placeholder="name" className="inputForm"

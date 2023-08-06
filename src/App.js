@@ -1,5 +1,4 @@
-import React, { useState, useEffect} from "react";
-import { fetchSubscribers } from "./server/fetchApi";
+import React from "react";
 import { BrowserRouter as Router, 
     Routes, 
     Route, 
@@ -12,16 +11,7 @@ import {
     SubscribersList } from "./components";
 import "./style/style.css";
 function App() {
-  const [subs, setSubs ] = useState();
-
-  const FetchData = async() => {
-    const data = await fetchSubscribers();
-    setSubs(data)
-  }
-  useEffect(() => {
-    FetchData()
-
-  },[])
+  
   return (
     <div className="App">
       <Router>
@@ -45,7 +35,7 @@ function App() {
           </nav>
           <Routes>
             <Route exact path="/" element={ <Header /> } />
-            <Route path="/Subscibers_List" element={ <SubscribersList subs={subs} /> } />
+            <Route path="/Subscibers_List" element={ <SubscribersList /> } />
             <Route path="/Add_Subscriber" element={ <AddSubscriber /> } />
             <Route path="/Campaign" element={ <Campaign /> } />
             <Route path="/New_Campaign" element={ <NewCampaign /> } />

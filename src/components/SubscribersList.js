@@ -1,10 +1,19 @@
 //lista odbiorców
 //Lista zawiera
 //Email, Imię oraz datę dodania subskrybenta
-import React from "react";
+import React , { useEffect, useState } from "react";
 import '../style/style.css'
-function SubscribersList({subs}){
-    console.log(subs)
+import { fetchSubscribers } from "../server/fetchApi";
+function SubscribersList(){
+    const [subs, setSubs ] = useState();
+    const FetchData = async() => {
+        const data = await fetchSubscribers();
+        setSubs(data)
+    }
+    useEffect(() => {
+        FetchData()
+    
+    },[])
     return(
         <div className="component">
             <h1>Lista Subskrybentów</h1>

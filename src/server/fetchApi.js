@@ -35,7 +35,9 @@ export const fetchCampaign = async () => {
         data.push({ 
             id: elem.id,
             subject: elem.fields.subject,
-            content: elem.fields.content })
+            content: elem.fields.content,
+            select: elem.fields.select
+        })
     });
     return data;
     
@@ -66,7 +68,8 @@ base('Campaign').create([
     {
         "fields": {
         "subject": subject,
-        "content": content
+        "content": content,
+        "select": "Draft"
         }
     }
     ], function(err, records) {

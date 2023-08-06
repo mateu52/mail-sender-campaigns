@@ -1,6 +1,3 @@
-// obiektu Campaign (również dostępny w Airtable). Ten obiekt będzie zawierał pola:
-// subject - tytuł wysyłanego maila
-// content - treść wysyłanego maila
 import { fetchCampaign, deleteCampaign } from "../server/fetchApi";
 import React, { useState, useEffect} from "react";
 import '../style/style.css'
@@ -24,9 +21,14 @@ function Campaign(){
             <h1>Kampanie mailowe</h1>
             <div className="compList">{campaign && campaign.map(elem => {
                 return(
-                <div key={elem.id} className="elemList" onClick={() =>handleDelete(elem.id)}>
+                <div key={elem.id} className="elemList" >
                     <p>Temat: {elem.subject}</p>
                     <p>treść: {elem.content}</p>
+                    <p>stan: {elem.select} 
+                        {elem.select === 'Draft' 
+                        ?<input type="button" value="Usuń" onClick={() =>handleDelete(elem.id)} /> 
+                            : null}
+                    </p>
                 </div>)
             })}</div>
         </div>

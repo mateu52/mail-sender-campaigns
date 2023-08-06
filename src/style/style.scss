@@ -25,16 +25,16 @@
 .compList {
     padding: 5px 0;
 }
-.addSubForm {
+.form-to-add {
     height: 300px;
     width: 300px;
+    padding: 19px;
     margin:auto;
     display: flex;
     justify-content: center;
     flex-direction: column;
     border: 4px outset rgba(3, 62, 255, 0.708);
     border-radius: 13px;
-    
     .inputForm {
         margin: auto;
         width: 200px;
@@ -42,6 +42,10 @@
         padding: 12px 20px;
         border: 1px solid #ccc;
         border-radius: 4px;
+    }
+    .content {
+        width: 230px;
+        height: 70px;
     }
     .inputFormSubmit {
         margin: auto;
@@ -58,5 +62,17 @@
     }
     .form-p {
         margin: 0 20px;
+    }
+}
+.campaignForm {
+    padding: 15px 0 10px 0;
+    p {
+        padding: 0 103px;
+        letter-spacing: 2px;
+    }
+    .inputForm {
+        letter-spacing: 12px;
+        padding: 0 4px;
+        font-size: 70%;
     }
 }
