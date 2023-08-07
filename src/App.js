@@ -17,19 +17,36 @@ function App() {
       <Router>
         <div>
           <nav className="nav">
-            <p>
+            <p className="nav-menu">
+              <p className="">
+                <Link to="/" ><p>Główna</p></Link>
+              </p>
+              <p className="">
+                <Link to="/Subscibers_List" ><p>Subscribers List</p></Link>
+              </p>
+              <p className="">
+                <Link to="/Add_Subscriber" ><p>Add Subscriber</p></Link>
+              </p>
+              <p className="">
+                <Link to="/Campaign" ><p>Campaign</p></Link>
+              </p>
+              <p className="">
+                <Link to="/New_Campaign" ><p>New Campaign</p></Link>
+              </p>
+            </p>
+            <p className="nav-link">
               <Link to="/" ><p>Główna</p></Link>
             </p>
-            <p>
+            <p className="nav-link">
               <Link to="/Subscibers_List" ><p>Subscribers List</p></Link>
             </p>
-            <p>
+            <p className="nav-link">
               <Link to="/Add_Subscriber" ><p>Add Subscriber</p></Link>
             </p>
-            <p>
+            <p className="nav-link">
               <Link to="/Campaign" ><p>Campaign</p></Link>
             </p>
-            <p>
+            <p className="nav-link">
               <Link to="/New_Campaign" ><p>New Campaign</p></Link>
             </p>
           </nav>
