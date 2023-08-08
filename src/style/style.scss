@@ -137,6 +137,21 @@ $backgroundColor-camp_Button: #ff404098;
         padding: 0 4px;
         font-size: 70%;
     }
+    .submit-box {
+        display: flex;
+        padding: 0 10px;
+        .campaign1 {
+            width: 100px;
+            margin: 0 4px;
+            display: inline;
+        }
+        .campaign2 {
+            width: 100px;
+            margin: 0 4px;
+            display: inline;
+        }
+    }
+
 }
 @media screen and (max-width:765px) {
     .nav {
@@ -172,20 +187,20 @@ $backgroundColor-camp_Button: #ff404098;
         }
         .nav-link {
             display: none;
-            width: 100vh;
         }
         .nav-menu {
             display:block;
             margin: 2px auto;
             letter-spacing: 2px;
             font-weight: 600;
-            width: 120%;
+            width: 100vh;
             text-align: center;
             
         }
         
     }
     .component{
+        padding: 5px;
         h1 {
             display: none;
         }
@@ -210,7 +225,36 @@ $backgroundColor-camp_Button: #ff404098;
     }
     .form-to-add {
         margin: 120px auto;
-        width: 250px;
-        padding: 10px 10px 10px 10px;
+        width: 215px;
+        padding: 10px 15px 10px 15px;
+        p {
+            width: 100%;
+            text-align: left;
+        }
+        .p {
+            text-align: left;
+        }
+        .form-p {
+            margin: 10px 20px;
+        }
+        input {
+            width: 100%;
+        }
+        .inputForm {
+            width: 180px;
+            margin: 12px 20px;
+        }
+    }
+    .campaignForm {
+        .submit-box {
+            padding: 0 3px 0 0;
+            .campaign1, .campaign2 {
+                width: 100px;
+                height: 35px;
+                font-size: 15px;
+                margin: 0 9px;
+                display: inline;
+            }
+        }
     }
 }

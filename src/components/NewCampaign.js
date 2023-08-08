@@ -12,20 +12,34 @@ function NewCampaign(){
     const onSubmit = (data) => {
         postCampaign(data.subject, data.content)
     }
+    const onDraft = (data) => {
+        postCampaign(data.subject, data.content)
+    }
     return(
         <div className="component">
             <h1>Add Campaign</h1>
-            <form onSubmit={handleSubmit(onSubmit)} className="form-to-add campaignForm">
-                <p className="form-p">Temat: </p>
+            <form className="form-to-add campaignForm">
+                <p className="form-p p">Temat: </p>
                 <input {...register("subject", { required: true })} 
                     placeholder="subject" className="inputForm"
                 />
-                <p className="form-p">treść: </p>
+                <p className="form-p p">treść: </p>
                 <input {...register("content", { required: true })} 
                     placeholder="content" className="inputForm content"
                 />
                 {errors.email && <span>This fields is required</span>}
-                <input type="submit" className="inputFormSubmit" />
+                <p className="submit-box">
+                    <input 
+                        type="submit" value="wyślij"
+                        className="inputFormSubmit campaign1" 
+                        onClick={handleSubmit(onSubmit)}
+                    />
+                    <input 
+                        type="submit" value="zapisz"
+                        className="inputFormSubmit campaign2" 
+                        onClick={handleSubmit(onDraft)}
+                        />
+                    </p>
             </form>
             <p className="margin"></p>
         
